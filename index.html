@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación | Alvarado Nieto Camila Yoselyn</title>
+
+  <!-- Fuentes mágicas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Música de fondo (puedes cambiar el mp3) -->
+  <!-- Coloca tu archivo de música en la misma carpeta y cambia el src -->
+  <audio id="bg-music" loop>
+    <!-- EJEMPLO: <source src="musica_princesa.mp3" type="audio/mpeg" /> -->
+  </audio>
+
+  <!-- Pantalla de inicio tipo cuento (para tu video de intro) -->
+  <div class="intro-overlay" id="intro-overlay">
+    <!-- Aquí puedes poner un VIDEO de intro en .mp4 -->
+    <!-- Ejemplo:
+    <video class="intro-video" autoplay muted playsinline>
+      <source src="intro_camila.mp4" type="video/mp4" />
+    </video>
+    -->
+    <div class="intro-gradient"></div>
+
+    <div class="intro-content">
+      <h1 class="intro-title">Érase una vez...</h1>
+      <p class="intro-subtitle">
+        Un mágico cuento verde y dorado<br>
+        para celebrar a
+      </p>
+      <h2 class="intro-name">Camila Yoselyn</h2>
+
+      <button class="btn-magic" id="btn-enter">
+        ✨ Entrar al cuento ✨
+      </button>
+
+      <button class="btn-secondary" id="btn-toggle-music">
+        🔈 Activar música
+      </button>
+    </div>
+
+    <!-- Brillitos flotando -->
+    <div class="sparkles sparkles-1"></div>
+    <div class="sparkles sparkles-2"></div>
+    <div class="sparkles sparkles-3"></div>
+  </div>
+
+  <!-- Contenido principal de la invitación -->
+  <main class="page">
+
+    <!-- Encabezado con princesa y sapo -->
+    <section class="hero" id="inicio">
+      <div class="hero-bg-overlay"></div>
+
+      <!-- Imagen de fondo opcional (bosque / lago) -->
+      <!-- Puedes usar un PNG grande o JPG -->
+      <img src="./img/princesa.jpg" alt="Bosque mágico" class="hero-bg-img" />
+
+      <div class="hero-content">
+
+        <!-- Lugar para IMAGEN PNG de la princesa -->
+        <div class="hero-princess">
+          <!-- Pon aquí la imagen que se parece a la que me mandaste -->
+          <img src="./img/princesa.jpg" alt="Princesa Camila" />
+        </div>
+
+        <!-- Lugar para un GIF del sapo -->
+        <div class="hero-frog">
+          <img src="./img/princesa.jpg" alt="Sapo mágico" />
+        </div>
+
+        <div class="hero-text">
+          <p class="hero-pretitle">Invitación Real</p>
+          <h1 class="hero-name">Alvarado Nieto<br>Camila Yoselyn</h1>
+          <p class="hero-story">
+            En lo profundo de un bosque encantado, una princesa de vestido
+            verde olivo y destellos dorados abre las puertas de su palacio
+            para vivir una noche de cuento junto a ti.
+          </p>
+        </div>
+      </div>
+
+      <!-- Botones mágicos de navegación (scroll suave) -->
+      <div class="hero-buttons">
+        <button class="btn-outline" data-target="#detalles">📜 Detalles del cuento</button>
+        <button class="btn-outline" data-target="#galeria">🌟 Magia & Recuerdos</button>
+        <button class="btn-outline" data-target="#confirmacion">💌 Confirmar asistencia</button>
+      </div>
+    </section>
+
+    <!-- Sección: Detalles del evento -->
+    <section class="section card" id="detalles">
+      <h2 class="section-title">Detalles del Gran Baile</h2>
+
+      <div class="section-divider">
+        <span class="divider-line"></span>
+        <span class="divider-icon">👑</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <p class="section-text">
+        El reino entero se prepara para una noche mágica donde los sueños
+        se hacen realidad. Acompaña a nuestra princesa en este capítulo tan
+        especial de su cuento.
+      </p>
+
+      <div class="details-grid">
+        <div class="detail-item">
+          <span class="detail-label">Fecha</span>
+          <!-- EDITA AQUÍ -->
+          <span class="detail-value">Sábado 12 de Julio, 2025</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Hora</span>
+          <!-- EDITA AQUÍ -->
+          <span class="detail-value">7:00 p.m.</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Lugar</span>
+          <!-- EDITA AQUÍ -->
+          <span class="detail-value">Salón Real “Lago Encantado”</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Dress code</span>
+          <!-- EDITA AQUÍ -->
+          <span class="detail-value">Toque de verde, dorado o brillo mágico ✨</span>
+        </div>
+      </div>
+
+      <!-- Lugar para un mapa (imagen o iframe) -->
+      <div class="map-wrapper">
+        <!-- OPCIÓN 1: Imagen PNG del mapa-->
+        <img src="img/princesa.jpg" alt="Mapa del salón" />
+
+
+        <!-- OPCIÓN 2: Iframe de Google Maps
+        <iframe src="URL_DE_GOOGLE_MAPS"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        -->
+      </div>
+    </section>
+
+    <!-- Sección: Historia / Mensaje para invitados -->
+    <section class="section card" id="historia">
+      <h2 class="section-title">Un toque de magia</h2>
+
+      <p class="section-text">
+        Cada estrella en el cielo guarda un deseo de Camila: compartir esta
+        noche contigo. Entre coronas, varitas y un pequeño sapo curioso,
+        descubriremos que los verdaderos hechizos se hacen con abrazos,
+        risas y recuerdos inolvidables.
+      </p>
+
+      <!-- Lugar para un GIF de brillos / varita mágica -->
+      <div class="magic-gif">
+        <!-- Ejemplo: <img src="brillos_varita.gif" alt="Brillos mágicos" /> -->
+      </div>
+    </section>
+
+    <!-- Sección: Galería (para PNG y GIF) -->
+    <section class="section card" id="galeria">
+      <h2 class="section-title">Momentos encantados</h2>
+
+      <p class="section-text">
+        Aquí puedes agregar imágenes de Camila, del palacio, del sapo,
+        coronas y todos los detalles de este cuento.
+      </p>
+
+      <div class="gallery-grid">
+        <!-- Cada div es un espacio para una imagen PNG o GIF -->
+        <div class="gallery-item">
+          <!-- <img src="camila1.png" alt="Camila princesa" /> -->
+        </div>
+        <div class="gallery-item">
+          <!-- <img src="camila_sapo.gif" alt="Camila y el sapo" /> -->
+        </div>
+        <div class="gallery-item">
+          <!-- <img src="corona_dorada.png" alt="Corona dorada" /> -->
+        </div>
+        <div class="gallery-item">
+          <!-- <img src="varita_magica.gif" alt="Varita mágica" /> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Video especial (puedes poner uno o varios) -->
+    <section class="section card" id="video">
+      <h2 class="section-title">Mensaje de la Princesa</h2>
+
+      <p class="section-text">
+        Puedes agregar aquí un video donde Camila invite a sus invitados
+        o un clip tipo tráiler de cuento de hadas.
+      </p>
+
+      <div class="video-wrapper">
+        <!-- VIDEO PRINCIPAL -->
+        <!-- Ejemplo:
+        <video controls poster="preview_video.png">
+          <source src="video_mensaje_camila.mp4" type="video/mp4" />
+        </video>
+        -->
+      </div>
+    </section>
+
+    <!-- Sección: Confirmación de invitados -->
+    <section class="section card" id="confirmacion">
+      <h2 class="section-title">Confirma tu asistencia</h2>
+
+      <p class="section-text">
+        La corte real necesita saber si podrás asistir al baile encantado.
+        Completa tus datos y envía tu respuesta para que el sapo mensajero
+        lleve tu confirmación al palacio.
+      </p>
+
+      <form class="rsvp-form" id="rsvp-form">
+        <div class="form-group">
+          <label for="nombre">Nombre del invitado</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="acompanantes">Número de acompañantes</label>
+          <input type="number" id="acompanantes" name="acompanantes" min="0" max="10" value="0" />
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Mensaje para la princesa</label>
+          <textarea id="mensaje" name="mensaje" rows="3" placeholder="Deja un deseo o mensaje mágico"></textarea>
+        </div>
+
+        <button type="submit" class="btn-magic btn-full">
+          💌 Enviar mi respuesta
+        </button>
+
+        <p class="rsvp-note">
+          *Puedes configurar este botón para que envíe los datos por WhatsApp o a un formulario de Google.
+        </p>
+      </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+      <p>
+        Con cariño, la familia
+        <span class="footer-highlight">Alvarado Nieto</span>.
+      </p>
+      <p class="footer-small">
+        “Porque hasta el sapo sabe que esta noche la magia la tiene Camila Yoselyn”.
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

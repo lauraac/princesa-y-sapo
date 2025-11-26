@@ -81,7 +81,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 420px;
-  max-height: 90vh; /* 👈 nunca más alta que la pantalla */
+  max-height: 90vh; /* nunca más alta que la pantalla */
   background: linear-gradient(
       135deg,
       rgba(31, 127, 107, 0.18),
@@ -93,11 +93,10 @@ body {
   border: var(--border-glass);
   box-shadow: var(--shadow-soft), var(--shadow-gold);
   text-align: center;
-  overflow: hidden; /* 👈 SIN scroll interno */
+  overflow: hidden; /* sin scroll interno */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
   align-items: center;
 }
 
@@ -120,6 +119,7 @@ body {
   color: var(--text-soft);
   font-size: 0.95rem;
 }
+
 /* SPARKLES */
 
 .magic-sparkles {
@@ -512,19 +512,19 @@ body {
 
 .gallery-item {
   background: rgba(0, 0, 0, 0.55);
-  border-radius: 999px; /* pastillita */
+  border-radius: 999px;
   padding: 10px 10px 12px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.09);
-  width: 190px; /* ancho fijo para que se vean igual */
+  width: 190px;
 }
 
 .gallery-image {
   display: block;
   width: 100%;
-  height: 110px; /* altura fija para que se vean grandes */
-  object-fit: cover; /* recorta bonito la imagen */
-  border-radius: 999px; /* imagen redondeada tipo frasco mágico */
+  height: 110px;
+  object-fit: cover;
+  border-radius: 999px;
   margin: 0 auto 6px;
   box-shadow: 0 0 12px rgba(255, 214, 107, 0.45);
 }
@@ -715,7 +715,7 @@ textarea {
 
 .intro-title-img img {
   max-width: 40%;
-  width: 200px; /* Ajusta según diseño */
+  width: 200px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -735,11 +735,12 @@ textarea {
 }
 
 .intro-crown img {
-  width: 120px; /* ajústalo */
+  width: 120px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
+
 .intro-crown img {
   animation: float 3s ease-in-out infinite;
 }
@@ -758,25 +759,24 @@ textarea {
 
 /* ESTRELLAS EN TODA LA PANTALLA ENCIMA DE TODO */
 .magic-stars {
-  position: fixed; /* Siempre visible aunque hagas scroll */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* Ancho total */
-  height: 100vh; /* Alto total */
-  pointer-events: none; /* No bloquea clics */
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
   overflow: hidden;
-  z-index: 9999; /* Encima de TODAS las secciones */
+  z-index: 9999;
 }
 
 .magic-star {
   position: absolute;
   width: 58px;
   height: 58px;
-  background-image: url("./img/estrella.png"); /* tu PNG */
+  background-image: url("./img/estrella.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
   opacity: 0;
   transform: scale(0.4);
   animation: starTwinkle 1.8s ease-out forwards;
@@ -844,9 +844,10 @@ textarea {
   font-size: 0.95rem;
   line-height: 1.3;
 }
+
 /* AVISO SOLO VERSIÓN CELULAR (PC / TABLET GRANDE) */
 .desktop-warning {
-  display: none; /* Oculto en celular */
+  display: none;
 }
 
 .desktop-warning__card {
@@ -906,7 +907,6 @@ textarea {
     z-index: 10000;
   }
 
-  /* Difuminamos el resto de la página y la volvemos no interactiva */
   .page-background,
   .intro-overlay,
   .magic-stars {
@@ -916,15 +916,13 @@ textarea {
   }
 }
 
-/* Ajustes para que la intro siempre quepa en el celular */
-
 /* INTRO OVERLAY – ocupa toda la pantalla sin scroll */
 .intro-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* 👈 alto exacto de la pantalla */
+  height: 100vh;
   background: radial-gradient(
     circle at top,
     #11182d 0,
@@ -936,7 +934,7 @@ textarea {
   justify-content: center;
   padding: 16px;
   z-index: 30;
-  overflow: hidden; /* 👈 aquí matamos cualquier scroll */
+  overflow: hidden;
 }
 
 /* BOTÓN FLOTANTE DE MÚSICA */
@@ -950,7 +948,7 @@ textarea {
   border: 1px solid rgba(255, 214, 107, 0.7);
   background: radial-gradient(circle at top, #ffd66b, #f7a94e);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  display: none; /* 👈 OCULTO AL INICIO */
+  display: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -964,7 +962,6 @@ textarea {
   display: block;
 }
 
-/* cuando sí debe verse */
 .music-fab.is-visible {
   display: flex;
 }
@@ -973,26 +970,25 @@ textarea {
   box-shadow: 0 0 20px rgba(255, 214, 107, 0.9);
 }
 
-/* El marco del video solo mide lo necesario y no hace scroll */
-/* El marco del video solo mide lo necesario y no hace scroll */
+/* VIDEO INTRO – marco y video */
 .intro-video-wrapper {
   width: 100%;
-  max-width: 320px; /* ancho máximo del recuadro */
-  max-height: 50vh; /* un poco más alto para que se vea mejor */
+  max-width: 320px;
+  max-height: 50vh;
   margin: 0 auto 18px;
   border-radius: 20px;
   overflow: hidden;
   border: 2px solid rgba(255, 214, 107, 0.65);
   padding: 0;
 }
-/* El video se adapta sin recortarse */
+
 .intro-video {
   display: block;
   width: 100%;
-  height: auto; /* 👈 respeta la altura natural */
-  object-fit: contain; /* 👈 NO recorta, muestra todo el video */
+  height: auto;
+  object-fit: contain;
   border-radius: 20px;
   margin: 0;
   padding: 0;
-  background: #000; /* por si sobran franjas negras */
+  background: #000;
 }

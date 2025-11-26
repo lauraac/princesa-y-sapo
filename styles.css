@@ -70,24 +70,6 @@ body {
   z-index: 0;
 }
 
-/* INTRO OVERLAY */
-
-.intro-overlay {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-    circle at top,
-    #11182d 0,
-    #050814 50%,
-    #02030a 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  z-index: 30;
-}
-
 .intro-overlay--hidden {
   opacity: 0;
   visibility: hidden;
@@ -937,9 +919,13 @@ textarea {
 
 /* Ajustes para que la intro siempre quepa en el celular */
 
+/* INTRO OVERLAY – ocupa toda la pantalla sin scroll */
 .intro-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* 👈 alto exacto de la pantalla */
   background: radial-gradient(
     circle at top,
     #11182d 0,
@@ -951,6 +937,7 @@ textarea {
   justify-content: center;
   padding: 16px;
   z-index: 30;
+  overflow: hidden; /* 👈 aquí matamos cualquier scroll */
 }
 
 /* La tarjeta no puede ser más alta que la pantalla */

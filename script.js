@@ -218,7 +218,6 @@ function sendToWhatsApp() {
   let finalMessage =
     `Hola, quiero confirmar mi asistencia a los XV años de Camila Yoselyn.%0A%0A` +
     `👤 *Nombre:* ${name}%0A` +
-    `👥 *Acompañantes:* ${guests}%0A` +
     `📌 *Asistirá:* ${
       attendance === "si" ? "Sí asistiré ✨" : "No podré asistir 💌"
     }%0A`;

@@ -40,6 +40,11 @@
     </div>
   </div>
   <div class="magic-stars"></div>
+  <!-- 🔊 Botón flotante de música -->
+  <button class="music-fab" id="toggleMusicBtn" aria-label="Control de música">
+    <img src="./img/musica.png" alt="Música" id="musicIcon">
+  </button>
+
   <!-- LOADER / PORTADA DE VIDEO (para tu intro) -->
   <div class="intro-overlay" id="introOverlay">
     <div class="intro-card">
@@ -216,20 +221,16 @@
           Te recomendamos activar el sonido para vivir la experiencia completa.
         </p>
 
-        <button class="btn-ghost" id="toggleMusicBtn">
-          🎵 Reproducir música
-        </button>
-
-        <!-- Reemplaza el src por tu pista MP3 -->
         <audio id="bgMusic" loop>
-          <!-- <source src="assets/musica-camila.mp3" type="audio/mpeg" /> -->
+          <source src="./img/princesaprincipal.mp3" type="audio/mpeg">
           Tu navegador no soporta audio HTML5.
         </audio>
 
         <p class="music-note">
-          *(El audio solo se reproducirá si tú lo activas.)*
+          *(La música se reproducirá automáticamente al entrar al cuento.)*
         </p>
       </section>
+
 
       <!-- GALERÍA / PNG / GIF -->
       <section class="section story-gallery-section">

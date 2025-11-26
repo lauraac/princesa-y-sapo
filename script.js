@@ -14,10 +14,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const introOverlay = document.getElementById("introOverlay");
   const enterBtn = document.getElementById("enterInvitationBtn");
   const bgMusic = document.getElementById("bgMusic");
-  const toggleMusicBtn = document.getElementById("toggleMusicBtn");
+  const introVideo = document.getElementById("introVideo"); // asegúrate de tener id="introVideo" en el <video>
+  const musicFab = document.getElementById("toggleMusicBtn");
+  const musicIcon = document.getElementById("musicIcon");
+  let isMusicPlaying = false;
 
-  // 👉 NUEVO: referencia al video
-  const introVideo = document.getElementById("introVideo");
+  // ========= FUNCIONES MÚSICA FONDO =========
+
+  function updateMusicButton() {
+    if (!musicFab || !musicIcon) return;
+
+    if (isMusicPlaying) {
+      musicFab.classList.add("is-playing");
+      musicIcon.src = "./img/pausa.png"; // tu icono de pausa
+      musicIcon.alt = "Pausar música";
+    } else {
+      musicFab.classList.remove("is-playing");
+      musicIcon.src = "./img/musica.png"; // tu icono de nota
+      musicIcon.alt = "Reproducir música";
+    }
+  }
+
+  async function startMusic() {
+    if (!bgMusic) return;
+    try {
+      await bgMusic.play();
+      isMusicPlaying = true;
+      updateMusicButton();
+    } catch (error) {
+      console.log("El navegador no permitió reproducir la música:", error);
+    }
+  }
+
+  function pauseMusic() {
+    if (!bgMusic) return;
+    bgMusic.pause();
+    isMusicPlaying = false;
+    updateMusicButton();
+  }
 
   // ===============================
   // MANEJO DEL OVERLAY
@@ -25,50 +59,44 @@ document.addEventListener("DOMContentLoaded", () => {
   if (enterBtn && introOverlay) {
     enterBtn.addEventListener("click", () => {
       introOverlay.classList.add("intro-overlay--hidden");
+
+      // apagar video intro
+      if (introVideo) {
+        introVideo.muted = true;
+        introVideo.pause();
+      }
+
+      // mostrar botón flotante de música
+      if (musicFab) {
+        musicFab.classList.add("is-visible"); // 👈 ahora ya se ve
+      }
+
+      // iniciar música mp3
+      startMusic();
     });
   }
 
-  // 👉 NUEVO: al tocar el video, quitamos mute y reproducimos con sonido
+  // 👉 al tocar el video, quitamos mute y reproducimos con sonido (se queda igual)
   if (introVideo) {
     introVideo.addEventListener("click", () => {
       try {
         introVideo.muted = false; // enciende el audio
-        introVideo.play(); // por si el navegador lo pausó
+        introVideo.play(); // reproduce por si estaba pausado
       } catch (e) {
         console.log("No se pudo activar el audio del video:", e);
       }
     });
   }
 
-  if (enterBtn && introOverlay) {
-    enterBtn.addEventListener("click", () => {
-      introOverlay.classList.add("intro-overlay--hidden");
-      // Aquí podrías iniciar el video de intro o la música si quieres
-      // pero por políticas de navegador, lo ideal es que la música
-      // se controle con el botón de "Reproducir música".
-    });
-  }
-
   // ===============================
-  // MÚSICA DE FONDO
+  // BOTÓN FLOTANTE DE MÚSICA
   // ===============================
-
-  if (toggleMusicBtn && bgMusic) {
-    let isPlaying = false;
-
-    toggleMusicBtn.addEventListener("click", async () => {
-      try {
-        if (!isPlaying) {
-          await bgMusic.play();
-          isPlaying = true;
-          toggleMusicBtn.textContent = "⏸ Pausar música";
-        } else {
-          bgMusic.pause();
-          isPlaying = false;
-          toggleMusicBtn.textContent = "🎵 Reproducir música";
-        }
-      } catch (error) {
-        console.error("Error al reproducir la música:", error);
+  if (musicFab && bgMusic) {
+    musicFab.addEventListener("click", () => {
+      if (!isMusicPlaying) {
+        startMusic();
+      } else {
+        pauseMusic();
       }
     });
   }
@@ -106,12 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       rsvpSuccessMsg.textContent = message;
       rsvpSuccessMsg.style.display = "block";
-
-      // Aquí después puedes:
-      // - Enviar la info a Google Sheets
-      // - Consumir un endpoint
-      // - Mandar un correo, etc.
-      // De momento solo mostramos el mensaje.
     });
   }
 });

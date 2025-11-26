@@ -202,3 +202,33 @@ function createMagicStar() {
 }
 
 setInterval(createMagicStar, 600);
+function sendToWhatsApp() {
+  const name = document.getElementById("guestName").value.trim();
+  const guests = document.getElementById("guestCount").value.trim();
+  const attendance = document.querySelector(
+    'input[name="attendance"]:checked'
+  )?.value;
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !guests || !attendance) {
+    alert("Por favor llena todos los campos obligatorios 🙏");
+    return;
+  }
+
+  let finalMessage =
+    `Hola, quiero confirmar mi asistencia a los XV años de Camila Yoselyn.%0A%0A` +
+    `👤 *Nombre:* ${name}%0A` +
+    `👥 *Acompañantes:* ${guests}%0A` +
+    `📌 *Asistirá:* ${
+      attendance === "si" ? "Sí asistiré ✨" : "No podré asistir 💌"
+    }%0A`;
+
+  if (message) {
+    finalMessage += `%0A💬 *Mensaje:* ${message}`;
+  }
+
+  const phone = "5215614912727";
+  const url = `https://wa.me/${phone}?text=${finalMessage}`;
+
+  window.open(url, "_blank");
+}

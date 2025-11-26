@@ -4,7 +4,7 @@
 
 // Cambia esta fecha por la del evento real
 // Formato: "YYYY-MM-DDTHH:MM:SS"
-const EVENT_DATE_STRING = "2025-10-12T19:00:00";
+const EVENT_DATE_STRING = "2026-01-31T19:00:00";
 
 // ===============================
 // MANEJO DEL OVERLAY DE INTRO

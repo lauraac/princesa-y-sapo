@@ -994,14 +994,28 @@ textarea {
 }
 
 .footer-firma {
+  max-width: 380px;
+  margin: 0 auto 26px;
+  padding: 14px 16px 16px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 18, 30, 0.95),
+    rgba(5, 14, 18, 0.98)
+  );
+  border: 1px solid rgba(255, 214, 107, 0.45);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
   text-align: center;
-  padding: 40px 0 60px;
-  color: var(--text-muted);
+  color: var(--text-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
 .firma-texto {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .icono-lac {
@@ -1010,10 +1024,35 @@ textarea {
   margin: 0 4px;
   vertical-align: middle;
 }
-.icono-whats {
-  width: 20px;
-  height: 20px;
+
+/* Botón de WhatsApp del footer */
+.wa-dragon-btn {
+  margin-top: 4px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top, #1f7f6b, #0b151d);
+  border: 1px solid rgba(255, 214, 107, 0.6);
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7);
 }
+
+.wa-dragon-btn:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+}
+
+.icono-whats {
+  width: 18px;
+  height: 18px;
+}
+
 /* ============================
    MESA DE REGALOS – ESTILO CUENTO
    ============================ */

@@ -992,3 +992,25 @@ textarea {
   padding: 0;
   background: #000;
 }
+
+.footer-firma {
+  text-align: center;
+  padding: 40px 0 60px;
+  color: var(--text-muted);
+}
+
+.firma-texto {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.icono-lac {
+  width: 18px;
+  height: 18px;
+  margin: 0 4px;
+  vertical-align: middle;
+}
+.icono-whats {
+  width: 20px;
+  height: 20px;
+}

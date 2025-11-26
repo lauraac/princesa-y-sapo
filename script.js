@@ -16,6 +16,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgMusic = document.getElementById("bgMusic");
   const toggleMusicBtn = document.getElementById("toggleMusicBtn");
 
+  // 👉 NUEVO: referencia al video
+  const introVideo = document.getElementById("introVideo");
+
+  // ===============================
+  // MANEJO DEL OVERLAY
+  // ===============================
+  if (enterBtn && introOverlay) {
+    enterBtn.addEventListener("click", () => {
+      introOverlay.classList.add("intro-overlay--hidden");
+    });
+  }
+
+  // 👉 NUEVO: al tocar el video, quitamos mute y reproducimos con sonido
+  if (introVideo) {
+    introVideo.addEventListener("click", () => {
+      try {
+        introVideo.muted = false; // enciende el audio
+        introVideo.play(); // por si el navegador lo pausó
+      } catch (e) {
+        console.log("No se pudo activar el audio del video:", e);
+      }
+    });
+  }
+
   if (enterBtn && introOverlay) {
     enterBtn.addEventListener("click", () => {
       introOverlay.classList.add("intro-overlay--hidden");

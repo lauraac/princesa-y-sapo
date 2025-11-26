@@ -1048,3 +1048,9 @@ textarea {
 .gifts-button {
   margin-top: 8px;
 }
+.gifts-event {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: var(--accent-gold);
+  text-shadow: 0 0 6px rgba(255, 214, 107, 0.4);
+}

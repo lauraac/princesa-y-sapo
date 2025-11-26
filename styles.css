@@ -714,11 +714,11 @@ textarea {
 }
 
 .intro-title-img img {
-  max-width: 50%;
-  width: 400px;
+  width: 70%;
+  max-width: 220px; /* tamaño controlado en cel */
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 6px;
   animation: fadeIn 2s ease-in-out;
 }
 

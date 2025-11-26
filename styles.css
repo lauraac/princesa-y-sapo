@@ -133,13 +133,6 @@ body {
   font-size: 0.95rem;
 }
 
-.intro-video-wrapper {
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 18px;
-}
-
 .intro-video {
   display: block;
   width: 100%;
@@ -967,20 +960,24 @@ textarea {
   max-height: calc(100vh - 32px); /* 16px de margen arriba y abajo */
   overflow-y: auto;
 }
-
-/* GIF grande de intro */
+/* El marco solo debe medir lo que mide la imagen */
 .intro-video-wrapper {
-  border-radius: 18px;
+  display: inline-block; /* 👈 hace que el contenedor mida EXACTO lo de la imagen */
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 16px;
-  width: 100%;
+  border: 2px solid rgba(255, 214, 107, 0.6); /* doradito elegante */
+  margin: 0 auto 18px; /* centra el marco */
+  padding: 0;
 }
 
+/* La imagen debe ocupar el ancho real y NO estirarse a 100% */
 .intro-video {
   display: block;
-  width: 100%;
+  width: auto; /* 👈 usa el ancho NATURAL del GIF */
+  max-width: 100%; /* para que no se salga en pantallas pequeñas */
   height: auto;
-  max-height: 260px; /* para que no se coma toda la pantalla */
-  object-fit: contain; /* no recorta el GIF */
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 0;
+  padding: 0;
 }

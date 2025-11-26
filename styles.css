@@ -943,19 +943,53 @@ textarea {
   }
 }
 
+/* Ajustes para que la intro siempre quepa en el celular */
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    #11182d 0,
+    #050814 50%,
+    #02030a 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 30;
+}
+
+/* La tarjeta no puede ser más alta que la pantalla */
+.intro-card {
+  width: 100%;
+  max-width: 420px;
+  max-height: calc(100vh - 32px); /* 16px de margen arriba y abajo */
+  overflow-y: auto;
+}
+/* Texto GIF de bienvenida */
+.intro-title-img img {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 8px auto 12px;
+}
+
+/* GIF grande de intro */
 .intro-video-wrapper {
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 18px;
-
-  /* NUEVO: que se adapte al contenido */
+  margin-bottom: 16px;
   width: 100%;
 }
 
 .intro-video {
   display: block;
   width: 100%;
-  height: auto; /* que respete la altura original del gif */
-  object-fit: contain; /* para que NO se recorte el GIF */
+  height: auto;
+  max-height: 260px; /* para que no se coma toda la pantalla */
+  object-fit: contain; /* no recorta el GIF */
 }

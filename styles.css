@@ -737,12 +737,11 @@ textarea {
 
 .intro-title-img {
   text-align: center;
-  margin-top: 20px;
 }
 
 .intro-title-img img {
-  max-width: 90%;
-  width: 300px; /* Ajusta según diseño */
+  max-width: 40%;
+  width: 200px; /* Ajusta según diseño */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -967,14 +966,6 @@ textarea {
   max-width: 420px;
   max-height: calc(100vh - 32px); /* 16px de margen arriba y abajo */
   overflow-y: auto;
-}
-/* Texto GIF de bienvenida */
-.intro-title-img img {
-  max-width: 320px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 8px auto 12px;
 }
 
 /* GIF grande de intro */

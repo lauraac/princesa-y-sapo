@@ -942,3 +942,20 @@ textarea {
     user-select: none;
   }
 }
+
+.intro-video-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 18px;
+
+  /* NUEVO: que se adapte al contenido */
+  width: 100%;
+}
+
+.intro-video {
+  display: block;
+  width: 100%;
+  height: auto; /* que respete la altura original del gif */
+  object-fit: contain; /* para que NO se recorte el GIF */
+}

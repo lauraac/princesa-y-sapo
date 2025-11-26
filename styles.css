@@ -96,7 +96,8 @@ body {
   overflow: hidden; /* 👈 SIN scroll interno */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+
   align-items: center;
 }
 
@@ -119,13 +120,6 @@ body {
   color: var(--text-soft);
   font-size: 0.95rem;
 }
-
-.intro-video {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 /* SPARKLES */
 
 .magic-sparkles {
@@ -980,24 +974,25 @@ textarea {
 }
 
 /* El marco del video solo mide lo necesario y no hace scroll */
+/* El marco del video solo mide lo necesario y no hace scroll */
 .intro-video-wrapper {
   width: 100%;
-  max-width: 320px; /* 👈 ancho máximo del recuadro */
-  max-height: 40vh; /* 👈 no pasa del 40% de la pantalla */
+  max-width: 320px; /* ancho máximo del recuadro */
+  max-height: 50vh; /* un poco más alto para que se vea mejor */
   margin: 0 auto 18px;
   border-radius: 20px;
   overflow: hidden;
   border: 2px solid rgba(255, 214, 107, 0.65);
   padding: 0;
 }
-
-/* El video llena el marco sin deformarse */
+/* El video se adapta sin recortarse */
 .intro-video {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto; /* 👈 respeta la altura natural */
+  object-fit: contain; /* 👈 NO recorta, muestra todo el video */
   border-radius: 20px;
   margin: 0;
   padding: 0;
+  background: #000; /* por si sobran franjas negras */
 }

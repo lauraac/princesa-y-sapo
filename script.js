@@ -153,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         rsvpSuccessMsg.textContent = texto;
         rsvpSuccessMsg.style.display = "block";
+        rsvpForm.style.display = "none"; // 👈 OCULTA TODO EL FORMULARIO
 
         // Limpiar formulario
         rsvpForm.reset();

@@ -1,6 +1,8 @@
 // ===============================
 // CONFIGURACIÓN BÁSICA
 // ===============================
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxvcMnF53j0PBUcfIqyXG7BoYQnaHJJ041SmD_ifa2tZaWfHiwsfJMXI1ZofLfqCQSFGA/exec";
 
 // Cambia esta fecha por la del evento real
 // Formato: "YYYY-MM-DDTHH:MM:SS"
@@ -115,26 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const rsvpSuccessMsg = document.getElementById("rsvpSuccessMsg");
 
   if (rsvpForm && rsvpSuccessMsg) {
-    rsvpForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(rsvpForm);
-      const name = formData.get("guestName") || "Invitado";
-      const attendance = formData.get("attendance");
-
-      let message = "";
-
-      if (attendance === "si") {
-        message = `¡Gracias, ${name}! ✨ Tu lugar en el reino ha sido reservado.`;
-      } else if (attendance === "no") {
-        message = `Gracias por avisarnos, ${name}. 💌 Camila recibirá tu mensaje con cariño.`;
-      } else {
-        message = `Tu respuesta ha sido registrada. ¡Gracias por contestar!`;
-      }
-
-      rsvpSuccessMsg.textContent = message;
-      rsvpSuccessMsg.style.display = "block";
-    });
   }
 });
 
@@ -202,32 +184,3 @@ function createMagicStar() {
 }
 
 setInterval(createMagicStar, 600);
-function sendToWhatsApp() {
-  const name = document.getElementById("guestName").value.trim();
-  const guests = document.getElementById("guestCount").value.trim();
-  const attendance = document.querySelector(
-    'input[name="attendance"]:checked'
-  )?.value;
-  const message = document.getElementById("message").value.trim();
-
-  if (!name || !guests || !attendance) {
-    alert("Por favor llena todos los campos obligatorios 🙏");
-    return;
-  }
-
-  let finalMessage =
-    `Hola, quiero confirmar mi asistencia a los XV años de Camila Yoselyn.%0A%0A` +
-    `👤 *Nombre:* ${name}%0A` +
-    `📌 *Asistirá:* ${
-      attendance === "si" ? "Sí asistiré ✨" : "No podré asistir 💌"
-    }%0A`;
-
-  if (message) {
-    finalMessage += `%0A💬 *Mensaje:* ${message}`;
-  }
-
-  const phone = "5215614912727";
-  const url = `https://wa.me/${phone}?text=${finalMessage}`;
-
-  window.open(url, "_blank");
-}

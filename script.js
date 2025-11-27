@@ -113,10 +113,61 @@ document.addEventListener("DOMContentLoaded", () => {
   // FORMULARIO DE RSVP
   // ===============================
 
+  // ===============================
+  // FORMULARIO DE RSVP
+  // ===============================
+
   const rsvpForm = document.getElementById("rsvpForm");
   const rsvpSuccessMsg = document.getElementById("rsvpSuccessMsg");
 
   if (rsvpForm && rsvpSuccessMsg) {
+    rsvpForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(rsvpForm);
+      const name = formData.get("guestName") || "Invitado";
+      const attendance = formData.get("attendance");
+      const messageText = formData.get("message") || "";
+
+      if (!attendance) {
+        alert("Por favor elige si podrás asistir 💚");
+        return;
+      }
+
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (result.status === "ok") {
+          let texto = "";
+
+          if (attendance === "si") {
+            texto = `¡Gracias, ${name}! ✨ Tu lugar en el reino ha sido reservado.`;
+          } else {
+            texto = `Gracias por avisarnos, ${name}. 💌 Camila recibirá tu mensaje con cariño.`;
+          }
+
+          rsvpSuccessMsg.textContent = texto;
+          rsvpSuccessMsg.style.display = "block";
+
+          // Limpia el formulario
+          rsvpForm.reset();
+        } else {
+          alert(
+            "Hubo un error al guardar tu respuesta, intenta de nuevo más tarde 🙏"
+          );
+        }
+      } catch (error) {
+        console.error(error);
+        alert(
+          "No se pudo enviar la confirmación, revisa tu conexión e inténtalo otra vez 🙏"
+        );
+      }
+    });
   }
 });
 

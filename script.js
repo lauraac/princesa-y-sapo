@@ -112,8 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const rsvpSuccessMsg = document.getElementById("rsvpSuccessMsg");
 
   if (rsvpForm && rsvpSuccessMsg) {
+    const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : "";
+
     rsvpForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // Si ya está deshabilitado, no hacemos nada (evita doble clic)
+      if (submitBtn && submitBtn.disabled) return;
 
       const formData = new FormData(rsvpForm);
       const name = formData.get("guestName") || "Invitado";
@@ -125,9 +131,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
+        // Deshabilitar botón mientras se envía
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+        }
+
         await fetch(SCRIPT_URL, {
           method: "POST",
-          mode: "no-cors", // 👈 esto evita el error
+          mode: "no-cors", // evitamos error CORS
           body: formData,
         });
 
@@ -142,13 +154,24 @@ document.addEventListener("DOMContentLoaded", () => {
         rsvpSuccessMsg.textContent = texto;
         rsvpSuccessMsg.style.display = "block";
 
-        // Limpia el formulario
+        // Limpiar formulario
         rsvpForm.reset();
+
+        // Cambiar texto del botón y mantenerlo deshabilitado
+        if (submitBtn) {
+          submitBtn.textContent = "Confirmación enviada ✨";
+        }
       } catch (error) {
         console.error(error);
         alert(
           "No se pudo enviar la confirmación, revisa tu conexión e inténtalo otra vez 🙏"
         );
+
+        // Si falló, volvemos a habilitar el botón
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
       }
     });
   }

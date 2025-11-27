@@ -108,15 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
 
   initCountdown();
-
-  // ===============================
-  // FORMULARIO DE RSVP
-  // ===============================
-
-  // ===============================
-  // FORMULARIO DE RSVP
-  // ===============================
-
   const rsvpForm = document.getElementById("rsvpForm");
   const rsvpSuccessMsg = document.getElementById("rsvpSuccessMsg");
 
@@ -127,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const formData = new FormData(rsvpForm);
       const name = formData.get("guestName") || "Invitado";
       const attendance = formData.get("attendance");
-      const messageText = formData.get("message") || "";
 
       if (!attendance) {
         alert("Por favor elige si podrás asistir 💚");
@@ -135,32 +125,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch(SCRIPT_URL, {
+        await fetch(SCRIPT_URL, {
           method: "POST",
+          mode: "no-cors", // 👈 esto evita el error
           body: formData,
         });
 
-        const result = await response.json();
+        let texto = "";
 
-        if (result.status === "ok") {
-          let texto = "";
-
-          if (attendance === "si") {
-            texto = `¡Gracias, ${name}! ✨ Tu lugar en el reino ha sido reservado.`;
-          } else {
-            texto = `Gracias por avisarnos, ${name}. 💌 Camila recibirá tu mensaje con cariño.`;
-          }
-
-          rsvpSuccessMsg.textContent = texto;
-          rsvpSuccessMsg.style.display = "block";
-
-          // Limpia el formulario
-          rsvpForm.reset();
+        if (attendance === "si") {
+          texto = `¡Gracias, ${name}! ✨ Tu lugar en el reino ha sido reservado.`;
         } else {
-          alert(
-            "Hubo un error al guardar tu respuesta, intenta de nuevo más tarde 🙏"
-          );
+          texto = `Gracias por avisarnos, ${name}. 💌 Camila recibirá tu mensaje con cariño.`;
         }
+
+        rsvpSuccessMsg.textContent = texto;
+        rsvpSuccessMsg.style.display = "block";
+
+        // Limpia el formulario
+        rsvpForm.reset();
       } catch (error) {
         console.error(error);
         alert(

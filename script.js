@@ -151,33 +151,30 @@ document.addEventListener("DOMContentLoaded", () => {
           texto = `Gracias por avisarnos, ${name}. 💌 Camila recibirá tu mensaje con cariño.`;
         }
 
+        // ✅ MOSTRAR MENSAJE DE ÉXITO
         rsvpSuccessMsg.textContent = texto;
         rsvpSuccessMsg.style.display = "block";
-        rsvpForm.style.display = "none"; // 👈 OCULTA TODO EL FORMULARIO
-        // 👈 Ocultar solo los campos del formulario
+
+        // ❌ NO pongas: rsvpForm.style.display = "none";
+
+        // ✅ OCULTAR SOLO LOS CAMPOS (nombre, radio, mensaje)
         const fields = document.getElementById("rsvpFields");
         if (fields) fields.style.display = "none";
 
-        // 👈 Mostrar el botón pero desactivado
+        // ✅ DEJAR EL BOTÓN VISIBLE PERO DESACTIVADO Y CON OTRO TEXTO
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = "Confirmación enviada ✨";
         }
 
-        // Limpiar formulario
+        // Limpiar formulario (aunque ya estén ocultos)
         rsvpForm.reset();
-
-        // Cambiar texto del botón y mantenerlo deshabilitado
-        if (submitBtn) {
-          submitBtn.textContent = "Confirmación enviada ✨";
-        }
       } catch (error) {
         console.error(error);
         alert(
           "No se pudo enviar la confirmación, revisa tu conexión e inténtalo otra vez 🙏"
         );
 
-        // Si falló, volvemos a habilitar el botón
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = originalBtnText;

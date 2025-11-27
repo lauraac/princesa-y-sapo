@@ -1128,3 +1128,25 @@ textarea {
   font-size: 0.9rem;
   color: var(--text-soft);
 }
+
+.whatsapp-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.whatsapp-icon img {
+  width: 30px;
+  height: 30px;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.whatsapp-icon img:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}

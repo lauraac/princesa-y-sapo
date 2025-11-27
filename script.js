@@ -154,6 +154,15 @@ document.addEventListener("DOMContentLoaded", () => {
         rsvpSuccessMsg.textContent = texto;
         rsvpSuccessMsg.style.display = "block";
         rsvpForm.style.display = "none"; // 👈 OCULTA TODO EL FORMULARIO
+        // 👈 Ocultar solo los campos del formulario
+        const fields = document.getElementById("rsvpFields");
+        if (fields) fields.style.display = "none";
+
+        // 👈 Mostrar el botón pero desactivado
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Confirmación enviada ✨";
+        }
 
         // Limpiar formulario
         rsvpForm.reset();

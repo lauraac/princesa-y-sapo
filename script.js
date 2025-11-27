@@ -2,7 +2,7 @@
 // CONFIGURACIÓN BÁSICA
 // ===============================
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxcvMnF53j0PBUcflqyXG7BoYQnaHJJ041SmD_ifa2tZaWfHiwsfJMX1IZofLfQtCQSfGA/exec";
+  "https://script.google.com/macros/s/AKfycbxvcMnF53j0PBUcfIqyXG7BoYQnaHJJ041SmD_ifa2tZaWfHiwsfJMXI1ZofLfqCQSFGA/exec";
 
 // Cambia esta fecha por la del evento real
 // Formato: "YYYY-MM-DDTHH:MM:SS"
